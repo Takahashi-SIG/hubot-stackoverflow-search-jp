@@ -60,9 +60,9 @@ print_result = (msg, result, index) ->
 
 module.exports = (robot) ->
   
-  robot.hear /(?:stackoverflow|教えて)?、(.*)/i, (msg) ->
+  robot.hear /教えて、(.*)/i, (msg) ->
     unless process.env.HUBOT_STACK_OVERFLOW_API_KEY
-      return msg.send "You must configure the HUBOT_STACK_OVERFLOW_API_KEY environment variable"
+      return msg.send "HUBOT_STACK_OVERFLOW_API_KEYを環境変数にセットしてください"
 
     query = msg.match[1]
     do_search(msg, query)
