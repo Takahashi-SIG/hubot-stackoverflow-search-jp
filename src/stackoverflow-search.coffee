@@ -16,7 +16,8 @@ handle_response = (msg, req, query) ->
   json = "";
 
   gunzip.on('data', (data) ->
-      json += data.toString()
+      if data?
+        json += data.toString()
   );
 
   gunzip.on('end', () ->
